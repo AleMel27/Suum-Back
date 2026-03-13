@@ -1,0 +1,6 @@
+@SuumBackend_HostAddress = http://localhost:5177
+
+GET {{SuumBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
