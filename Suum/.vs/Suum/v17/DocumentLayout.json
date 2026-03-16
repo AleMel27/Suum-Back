@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\data\\data\\suumcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\data\\data\\suumcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\suumbackend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\suumbackend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|c:\\users\\hp support\\desktop\\s\u00FC\u00FCm\\backend\\cod\\suum-back\\suum\\suumbackend\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{474BECD6-A6F8-422C-8B31-A08DF37850FF}|SuumBackend\\SuumBackend.csproj|solutionrelative:suumbackend\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +42,99 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "SuumBackend\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwFEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T22:38:44.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SuumContext.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Data\\Data\\SuumContext.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Data\\Data\\SuumContext.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Data\\Data\\SuumContext.cs",
+              "RelativeToolTip": "SuumBackend\\Data\\Data\\SuumContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T19:08:05.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Controllers\\TestController.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Controllers\\TestController.cs",
+              "RelativeToolTip": "SuumBackend\\Controllers\\TestController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T18:52:59.453Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Program.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Program.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Program.cs",
+              "RelativeToolTip": "SuumBackend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T18:57:48.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Models\\Categoria.cs",
+              "RelativeToolTip": "SuumBackend\\Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T18:50:46.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Models\\Producto.cs",
+              "RelativeToolTip": "SuumBackend\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T18:50:25.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "SuumBackend\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\Models\\Usuario.cs",
+              "RelativeToolTip": "SuumBackend\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T18:51:03.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "SuumBackend.http",
               "DocumentMoniker": "C:\\Users\\HP SUPPORT\\Desktop\\S\u00FC\u00FCm\\Backend\\cod\\Suum-Back\\Suum\\SuumBackend\\SuumBackend.http",
               "RelativeDocumentMoniker": "SuumBackend\\SuumBackend.http",
@@ -26,8 +142,7 @@
               "RelativeToolTip": "SuumBackend\\SuumBackend.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-03-13T21:38:24.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-13T21:38:24.18Z"
             }
           ]
         }

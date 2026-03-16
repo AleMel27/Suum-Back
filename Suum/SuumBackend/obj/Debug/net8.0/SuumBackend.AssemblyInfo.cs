@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuumBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10c40d230cb909f1e2c6daf1fb8389ea6aa1b65f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuumBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuumBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
