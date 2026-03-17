@@ -39,14 +39,40 @@ namespace SuumBackend.Controllers
 
         // POST: api/Productos
         [HttpPost]
-        public async Task<ActionResult<Producto>> PostProducto(Producto producto)
+        public async Task<IActionResult> CrearProducto([FromForm] ProductoCrearDTO datos)
         {
+            if (datos.imagen == null)
+                return BadRequest("La imagen es obligatoria");
+
+            var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes");
+
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(datos.imagen.FileName);
+
+            var ruta = Path.Combine(carpeta, nombreArchivo);
+
+            using (var stream = new FileStream(ruta, FileMode.Create))
+            {
+                await datos.imagen.CopyToAsync(stream);
+            }
+
+            var producto = new Producto
+            {
+                nombre = datos.nombre,
+                precio = datos.precio,
+                stock = datos.stock,
+                id_categoria = datos.id_categoria,
+                imagen = "/imagenes/" + nombreArchivo,
+                estado = 1
+            };
+
             _context.Productos.Add(producto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProducto), new { id = producto.id_producto }, producto);
+            return Ok(producto);
         }
-
         // PUT: api/Productos/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProducto(int id, Producto producto)

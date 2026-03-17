@@ -2,3 +2,4 @@ wwwroot\uploads\des1.jpg
 wwwroot\uploads\des2.jpg
 wwwroot\uploads\des3.jpg
 wwwroot\uploads\des4.jpg
+wwwroot\uploads\banner.jpg
