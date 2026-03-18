@@ -1,0 +1,5 @@
+C:\Users\HP SUPPORT\Desktop\Süüm\Backend\cod\Suum-Back\Suum\SuumBackend\wwwroot\imagenes\2bbf53c6-eb79-42bc-9042-0ee51e5e6986.png
+C:\Users\HP SUPPORT\Desktop\Süüm\Backend\cod\Suum-Back\Suum\SuumBackend\wwwroot\imagenes\50402d19-39e7-4855-893e-d712128ec1d6.png
+C:\Users\HP SUPPORT\Desktop\Süüm\Backend\cod\Suum-Back\Suum\SuumBackend\wwwroot\imagenes\6b54db19-b0dc-4d77-8ab6-2cd9e49cd7cd.png
+C:\Users\HP SUPPORT\Desktop\Süüm\Backend\cod\Suum-Back\Suum\SuumBackend\wwwroot\imagenes\ad2b080a-571e-4e84-9f99-c4b35ac65a81.png
+C:\Users\HP SUPPORT\Desktop\Süüm\Backend\cod\Suum-Back\Suum\SuumBackend\wwwroot\imagenes\c61e0bca-56db-493b-9ce6-9efc31661f2d.png

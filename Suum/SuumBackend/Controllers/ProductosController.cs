@@ -20,7 +20,10 @@ namespace SuumBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
         {
-            return await _context.Productos.ToListAsync();
+            return await _context.Productos
+                .Include(p => p.producto_tallas)
+                .ThenInclude(pt => pt.talla)
+                .ToListAsync();
         }
 
         // GET: api/Productos/5
@@ -41,51 +44,91 @@ namespace SuumBackend.Controllers
         [HttpPost]
         public async Task<IActionResult> CrearProducto([FromForm] ProductoCrearDTO datos)
         {
-            if (datos.imagen == null)
-                return BadRequest("La imagen es obligatoria");
-
-            var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes");
-
-            if (!Directory.Exists(carpeta))
-                Directory.CreateDirectory(carpeta);
-
-            var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(datos.imagen.FileName);
-
-            var ruta = Path.Combine(carpeta, nombreArchivo);
-
-            using (var stream = new FileStream(ruta, FileMode.Create))
-            {
-                await datos.imagen.CopyToAsync(stream);
-            }
-
             var producto = new Producto
             {
                 nombre = datos.nombre,
-                precio = datos.precio,
-                stock = datos.stock,
+                precio = datos.precio ?? 0,
                 id_categoria = datos.id_categoria,
-                imagen = "/imagenes/" + nombreArchivo,
                 estado = 1
             };
 
+            // guardar imagen
+            if (datos.imagen != null)
+            {
+                var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes");
+
+                if (!Directory.Exists(carpeta))
+                    Directory.CreateDirectory(carpeta);
+
+                var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(datos.imagen.FileName);
+                var ruta = Path.Combine(carpeta, nombreArchivo);
+
+                using (var stream = new FileStream(ruta, FileMode.Create))
+                {
+                    await datos.imagen.CopyToAsync(stream);
+                }
+
+                producto.imagen = "/imagenes/" + nombreArchivo;
+            }
+
             _context.Productos.Add(producto);
+            await _context.SaveChangesAsync();
+
+            foreach (var t in datos.tallas)
+            {
+                var pt = new ProductoTalla
+                {
+                    id_producto = producto.id_producto,
+                    id_talla = t.id_talla,
+                    stock = t.stock
+                };
+
+                _context.ProductoTallas.Add(pt);
+            }
+
             await _context.SaveChangesAsync();
 
             return Ok(producto);
         }
         // PUT: api/Productos/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProducto(int id, Producto producto)
+        public async Task<IActionResult> ActualizarProducto(int id, [FromForm] ProductoCrearDTO datos)
         {
-            if (id != producto.id_producto)
+            var producto = await _context.Productos.FindAsync(id);
+
+            if (producto == null)
+                return NotFound();
+
+            if (datos.nombre != null)
+                producto.nombre = datos.nombre;
+
+            if (datos.precio.HasValue)
+                producto.precio = datos.precio.Value;
+
+            if (datos.id_categoria.HasValue)
+                producto.id_categoria = datos.id_categoria.Value;
+
+            if (datos.imagen != null)
             {
-                return BadRequest();
+                var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes");
+
+                if (!Directory.Exists(carpeta))
+                    Directory.CreateDirectory(carpeta);
+
+                var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(datos.imagen.FileName);
+                var ruta = Path.Combine(carpeta, nombreArchivo);
+
+                using (var stream = new FileStream(ruta, FileMode.Create))
+                {
+                    await datos.imagen.CopyToAsync(stream);
+                }
+
+                producto.imagen = "/imagenes/" + nombreArchivo;
             }
 
-            _context.Entry(producto).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(producto);
         }
 
         // DELETE: api/Productos/5

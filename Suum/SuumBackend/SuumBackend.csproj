@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\imagenes\72cedcf8-4175-4150-9697-16be930a2e05.png" />
+    <Content Remove="wwwroot\imagenes\eaf4ecca-97bb-4b3c-bc90-1ecadb81921b.png" />
+    <Content Remove="wwwroot\imagenes\f0876729-9807-47e3-9071-8a3dd475e3c6.png" />
+    <Content Remove="wwwroot\imagenes\f2ed0390-5103-4c47-8264-c301705dceb3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +27,7 @@
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="Service\" />
+    <Folder Include="wwwroot\imagenes\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 

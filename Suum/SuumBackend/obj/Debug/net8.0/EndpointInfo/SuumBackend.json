@@ -128,10 +128,6 @@
                     "type": "number",
                     "format": "double"
                   },
-                  "stock": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
                   "id_categoria": {
                     "type": "integer",
                     "format": "int32"
@@ -139,6 +135,12 @@
                   "imagen": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "tallas": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/TallaStockDTO"
+                    }
                   }
                 }
               },
@@ -149,13 +151,13 @@
                 "precio": {
                   "style": "form"
                 },
-                "stock": {
-                  "style": "form"
-                },
                 "id_categoria": {
                   "style": "form"
                 },
                 "imagen": {
+                  "style": "form"
+                },
+                "tallas": {
                   "style": "form"
                 }
               }
@@ -225,19 +227,49 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Producto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Producto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Producto"
+                "type": "object",
+                "properties": {
+                  "nombre": {
+                    "type": "string"
+                  },
+                  "precio": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "id_categoria": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "imagen": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "tallas": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/TallaStockDTO"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "nombre": {
+                  "style": "form"
+                },
+                "precio": {
+                  "style": "form"
+                },
+                "id_categoria": {
+                  "style": "form"
+                },
+                "imagen": {
+                  "style": "form"
+                },
+                "tallas": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -295,10 +327,6 @@
           "nombre": {
             "type": "string",
             "nullable": true
-          },
-          "descripcion": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -332,16 +360,7 @@
             "type": "number",
             "format": "double"
           },
-          "stock": {
-            "type": "integer",
-            "format": "int32"
-          },
           "id_categoria": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "id_talla": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -352,11 +371,66 @@
           },
           "estado": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "categoria": {
             "$ref": "#/components/schemas/Categoria"
+          },
+          "producto_tallas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoTalla"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductoTalla": {
+        "type": "object",
+        "properties": {
+          "id_producto": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id_talla": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "talla": {
+            "$ref": "#/components/schemas/Talla"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Talla": {
+        "type": "object",
+        "properties": {
+          "id_talla": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "talla": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TallaStockDTO": {
+        "type": "object",
+        "properties": {
+          "id_talla": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
