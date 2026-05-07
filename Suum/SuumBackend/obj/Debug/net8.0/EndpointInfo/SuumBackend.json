@@ -43,33 +43,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Categoria"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Categoria"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Categoria"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -81,33 +55,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Producto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Producto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Producto"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -132,15 +80,8 @@
                     "type": "integer",
                     "format": "int32"
                   },
-                  "imagen": {
-                    "type": "string",
-                    "format": "binary"
-                  },
                   "tallas": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/TallaStockDTO"
-                    }
+                    "type": "string"
                   }
                 }
               },
@@ -152,9 +93,6 @@
                   "style": "form"
                 },
                 "id_categoria": {
-                  "style": "form"
-                },
-                "imagen": {
                   "style": "form"
                 },
                 "tallas": {
@@ -189,24 +127,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Producto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Producto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Producto"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -242,15 +163,8 @@
                     "type": "integer",
                     "format": "int32"
                   },
-                  "imagen": {
-                    "type": "string",
-                    "format": "binary"
-                  },
                   "tallas": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/TallaStockDTO"
-                    }
+                    "type": "string"
                   }
                 }
               },
@@ -262,9 +176,6 @@
                   "style": "form"
                 },
                 "id_categoria": {
-                  "style": "form"
-                },
-                "imagen": {
                   "style": "form"
                 },
                 "tallas": {
@@ -302,6 +213,18 @@
         }
       }
     },
+    "/api/Tallas": {
+      "get": {
+        "tags": [
+          "Tallas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Test": {
       "get": {
         "tags": [
@@ -317,20 +240,6 @@
   },
   "components": {
     "schemas": {
-      "Categoria": {
-        "type": "object",
-        "properties": {
-          "id_categoria": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginRequest": {
         "type": "object",
         "properties": {
@@ -341,96 +250,6 @@
           "password": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Producto": {
-        "type": "object",
-        "properties": {
-          "id_producto": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "precio": {
-            "type": "number",
-            "format": "double"
-          },
-          "id_categoria": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "imagen": {
-            "type": "string",
-            "nullable": true
-          },
-          "estado": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "categoria": {
-            "$ref": "#/components/schemas/Categoria"
-          },
-          "producto_tallas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductoTalla"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProductoTalla": {
-        "type": "object",
-        "properties": {
-          "id_producto": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "id_talla": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "talla": {
-            "$ref": "#/components/schemas/Talla"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Talla": {
-        "type": "object",
-        "properties": {
-          "id_talla": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "talla": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TallaStockDTO": {
-        "type": "object",
-        "properties": {
-          "id_talla": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

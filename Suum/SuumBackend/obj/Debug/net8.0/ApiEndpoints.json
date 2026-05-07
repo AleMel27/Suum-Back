@@ -23,17 +23,7 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SuumBackend.Models.Categoria, SuumBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "SuumBackend.Controllers.ProductosController",
@@ -43,17 +33,7 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Producto, SuumBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "SuumBackend.Controllers.ProductosController",
@@ -70,22 +50,17 @@
       },
       {
         "Name": "precio",
-        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Decimal",
         "IsRequired": false
       },
       {
         "Name": "id_categoria",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "imagen",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
         "Name": "tallas",
-        "Type": "System.Collections.Generic.List\u00601[[SuumBackend.Models.TallaStockDTO, SuumBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -105,21 +80,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Producto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "SuumBackend.Controllers.ProductosController",
-    "Method": "ActualizarProducto",
+    "Method": "EditarProducto",
     "RelativePath": "api/Productos/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -137,22 +102,17 @@
       },
       {
         "Name": "precio",
-        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Decimal",
         "IsRequired": false
       },
       {
         "Name": "id_categoria",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "imagen",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
         "Name": "tallas",
-        "Type": "System.Collections.Generic.List\u00601[[SuumBackend.Models.TallaStockDTO, SuumBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -172,6 +132,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SuumBackend.Controllers.TallasController",
+    "Method": "GetTallas",
+    "RelativePath": "api/Tallas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

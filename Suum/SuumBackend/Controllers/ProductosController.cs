@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SuumBackend.Data;
 using SuumBackend.Models;
 
@@ -16,65 +17,107 @@ namespace SuumBackend.Controllers
             _context = context;
         }
 
-        // GET: api/Productos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
+        public async Task<IActionResult> GetProductos()
         {
-            return await _context.Productos
+            var productos = await _context.Productos
+                .Include(p => p.categoria)
                 .Include(p => p.producto_tallas)
-                .ThenInclude(pt => pt.talla)
+                    .ThenInclude(pt => pt.talla)
+                .Select(p => new
+                {
+                    p.id_producto,
+                    p.nombre,
+                    p.precio,
+                    p.id_categoria,
+                    p.imagen,
+                    p.estado,
+
+                    categoria = new
+                    {
+                        p.categoria.id_categoria,
+                        p.categoria.nombre
+                    },
+
+                    producto_tallas = p.producto_tallas.Select(pt => new
+                    {
+                        pt.id_producto,
+                        pt.id_talla,
+                        pt.stock,
+
+                        talla = new
+                        {
+                            pt.talla.id_talla,
+                            pt.talla.talla
+                        }
+                    })
+                })
                 .ToListAsync();
+
+            return Ok(productos);
         }
 
-        // GET: api/Productos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Producto>> GetProducto(int id)
+        public async Task<IActionResult> GetProducto(int id)
         {
-            var producto = await _context.Productos.FindAsync(id);
+            var producto = await _context.Productos
+                .Include(p => p.categoria)
+                .Include(p => p.producto_tallas)
+                    .ThenInclude(pt => pt.talla)
+                .Where(p => p.id_producto == id)
+                .Select(p => new
+                {
+                    p.id_producto,
+                    p.nombre,
+                    p.precio,
+                    p.id_categoria,
+                    p.imagen,
+                    p.estado,
+
+                    categoria = new
+                    {
+                        p.categoria.id_categoria,
+                        p.categoria.nombre
+                    },
+
+                    producto_tallas = p.producto_tallas.Select(pt => new
+                    {
+                        pt.id_producto,
+                        pt.id_talla,
+                        pt.stock,
+
+                        talla = new
+                        {
+                            pt.talla.id_talla,
+                            pt.talla.talla
+                        }
+                    })
+                })
+                .FirstOrDefaultAsync();
 
             if (producto == null)
-            {
                 return NotFound();
-            }
 
-            return producto;
+            return Ok(producto);
         }
 
-        // POST: api/Productos
         [HttpPost]
-        public async Task<IActionResult> CrearProducto([FromForm] ProductoCrearDTO datos)
+        public async Task<IActionResult> CrearProducto([FromForm] ProductoCreateDTO dto)
         {
             var producto = new Producto
             {
-                nombre = datos.nombre,
-                precio = datos.precio ?? 0,
-                id_categoria = datos.id_categoria,
+                nombre = dto.nombre,
+                precio = dto.precio,
+                id_categoria = dto.id_categoria,
                 estado = 1
             };
-
-            // guardar imagen
-            if (datos.imagen != null)
-            {
-                var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes");
-
-                if (!Directory.Exists(carpeta))
-                    Directory.CreateDirectory(carpeta);
-
-                var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(datos.imagen.FileName);
-                var ruta = Path.Combine(carpeta, nombreArchivo);
-
-                using (var stream = new FileStream(ruta, FileMode.Create))
-                {
-                    await datos.imagen.CopyToAsync(stream);
-                }
-
-                producto.imagen = "/imagenes/" + nombreArchivo;
-            }
 
             _context.Productos.Add(producto);
             await _context.SaveChangesAsync();
 
-            foreach (var t in datos.tallas)
+            var tallas = JsonConvert.DeserializeObject<List<ProductoTalla>>(dto.tallas);
+
+            foreach (var t in tallas)
             {
                 var pt = new ProductoTalla
                 {
@@ -90,40 +133,35 @@ namespace SuumBackend.Controllers
 
             return Ok(producto);
         }
-        // PUT: api/Productos/5
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> ActualizarProducto(int id, [FromForm] ProductoCrearDTO datos)
+        public async Task<IActionResult> EditarProducto(int id, [FromForm] ProductoUpdateDTO dto)
         {
-            var producto = await _context.Productos.FindAsync(id);
+            var producto = await _context.Productos
+                .Include(p => p.producto_tallas)
+                .FirstOrDefaultAsync(p => p.id_producto == id);
 
             if (producto == null)
                 return NotFound();
 
-            if (datos.nombre != null)
-                producto.nombre = datos.nombre;
+            producto.nombre = dto.nombre;
+            producto.precio = dto.precio;
+            producto.id_categoria = dto.id_categoria;
 
-            if (datos.precio.HasValue)
-                producto.precio = datos.precio.Value;
+            _context.ProductoTallas.RemoveRange(producto.producto_tallas);
 
-            if (datos.id_categoria.HasValue)
-                producto.id_categoria = datos.id_categoria.Value;
+            var tallas = JsonConvert.DeserializeObject<List<ProductoTalla>>(dto.tallas);
 
-            if (datos.imagen != null)
+            foreach (var t in tallas)
             {
-                var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes");
-
-                if (!Directory.Exists(carpeta))
-                    Directory.CreateDirectory(carpeta);
-
-                var nombreArchivo = Guid.NewGuid().ToString() + Path.GetExtension(datos.imagen.FileName);
-                var ruta = Path.Combine(carpeta, nombreArchivo);
-
-                using (var stream = new FileStream(ruta, FileMode.Create))
+                var pt = new ProductoTalla
                 {
-                    await datos.imagen.CopyToAsync(stream);
-                }
+                    id_producto = id,
+                    id_talla = t.id_talla,
+                    stock = t.stock
+                };
 
-                producto.imagen = "/imagenes/" + nombreArchivo;
+                _context.ProductoTallas.Add(pt);
             }
 
             await _context.SaveChangesAsync();
@@ -131,18 +169,16 @@ namespace SuumBackend.Controllers
             return Ok(producto);
         }
 
-        // DELETE: api/Productos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProducto(int id)
         {
             var producto = await _context.Productos.FindAsync(id);
 
             if (producto == null)
-            {
                 return NotFound();
-            }
 
             _context.Productos.Remove(producto);
+
             await _context.SaveChangesAsync();
 
             return NoContent();

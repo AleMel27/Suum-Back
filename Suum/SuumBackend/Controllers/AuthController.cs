@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SuumBackend.Data;
-using System.Linq;
 
 namespace SuumBackend.Controllers
 {
@@ -19,12 +18,16 @@ namespace SuumBackend.Controllers
         public IActionResult Login([FromBody] LoginRequest request)
         {
             var usuario = _context.Usuarios
-                .FirstOrDefault(u => u.correo == request.correo
-                                  && u.password == request.password);
+                .FirstOrDefault(u =>
+                    u.correo == request.correo &&
+                    u.password == request.password);
 
             if (usuario == null)
             {
-                return Unauthorized(new { message = "Correo o contraseña incorrectos" });
+                return Unauthorized(new
+                {
+                    message = "Correo o contraseña incorrectos"
+                });
             }
 
             return Ok(new
@@ -38,6 +41,7 @@ namespace SuumBackend.Controllers
     public class LoginRequest
     {
         public string correo { get; set; } = "";
+
         public string password { get; set; } = "";
     }
 }

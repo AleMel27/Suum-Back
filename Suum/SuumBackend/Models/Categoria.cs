@@ -11,5 +11,6 @@ namespace SuumBackend.Models
 
         public string nombre { get; set; } = "";
 
+        public ICollection<Producto>? productos { get; set; }
     }
 }

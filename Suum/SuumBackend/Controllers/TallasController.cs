@@ -6,21 +6,21 @@ namespace SuumBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriasController : ControllerBase
+    public class TallasController : ControllerBase
     {
         private readonly SuumContext _context;
 
-        public CategoriasController(SuumContext context)
+        public TallasController(SuumContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCategorias()
+        public async Task<IActionResult> GetTallas()
         {
-            var categorias = await _context.Categorias.ToListAsync();
+            var tallas = await _context.Tallas.ToListAsync();
 
-            return Ok(categorias);
+            return Ok(tallas);
         }
     }
 }
